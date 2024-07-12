@@ -13,6 +13,10 @@ import {
   updateMetaAlineamiento,
   deleteMetaAlineamiento,
 } from "./controllers/metasAlineamientoController";
+import { get } from "http";
+import { getMetasEmpresarialesAlineamiento } from "./controllers/metasEmpresarialesAlineamientoController";
+import { getMetasAlineamientoGobierno } from "./controllers/metasAlineamientoGobiernoController";
+import { getObjetivosGobierno } from "./controllers/objetivosGobiernoController";
 
 const router = Router();
 
@@ -29,5 +33,14 @@ router.get("/metas_alineamiento/:codigo", getMetaAlineamientoByCodigo);
 router.post("/metas_alineamiento", createMetaAlineamiento);
 router.put("/metas_alineamiento/:id", updateMetaAlineamiento);
 router.delete("/metas_alineamiento/:id", deleteMetaAlineamiento);
+
+router.get(
+  "/metas_empresariales_alineamiento",
+  getMetasEmpresarialesAlineamiento
+);
+
+router.get("/metas_alineamiento_gobierno", getMetasAlineamientoGobierno);
+
+router.get("/objetivos_gobierno", getObjetivosGobierno);
 
 export default router;
